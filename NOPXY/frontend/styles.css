@@ -1,0 +1,56 @@
+/* ---------- Backgrounds ---------- */
+.login-bg {
+  background: url("classroom.jpg") no-repeat center center fixed;
+  background-size: cover;
+}
+
+.bg-overlay {
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(4px);
+}
+
+/* ---------- Card & Animation ---------- */
+.card {
+  border-radius: 1rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+}
+
+.fade-in {
+  animation: fadeIn 300ms ease both;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ---------- Scrollbar cleanup ---------- */
+aside::-webkit-scrollbar {
+  display: none;
+}
+
+main::-webkit-scrollbar {
+  width: 8px;
+}
+
+main::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.08);
+  border-radius: 8px;
+}
+
+/* ---------- Toast styling ---------- */
+.toast {
+  transition: opacity 0.25s;
+  padding: 0.75rem 1.25rem;
+  border-radius: 0.75rem;
+  color: white;
+  font-weight: 600;
+  min-width: 200px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}

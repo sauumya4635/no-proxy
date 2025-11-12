@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>NoProxy — Smart Attendance</title>
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body class="min-h-screen">
+  <!-- Toasts -->
+  <div id="toastContainer" class="fixed top-5 right-5 flex flex-col gap-2 z-50"></div>
+
+  <!-- AUTH SECTION -->
+  <div id="authScreen" class="login-bg min-h-screen flex items-center justify-center p-6">
+    <div class="card bg-white rounded-2xl w-full max-w-md p-8 space-y-4 fade-in">
+      <h1 class="text-2xl font-bold text-center text-gray-800">NoProxy – Smart Attendance System</h1>
+      <p class="text-center text-gray-500 text-sm">Sign in or create an account</p>
+
+      <div class="flex justify-center space-x-3 mb-2">
+        <button id="signInTab" class="flex-1 py-2 rounded-md font-medium bg-red-600 text-white">Sign In</button>
+        <button id="signUpTab" class="flex-1 py-2 rounded-md font-medium text-gray-700 hover:bg-gray-100">Sign Up</button>
+      </div>
+
+      <div class="flex bg-gray-100 rounded-lg p-1">
+        <button id="facultyTab" class="flex-1 py-2 rounded-md text-gray-700 font-medium hover:bg-gray-200">Faculty</button>
+        <button id="studentTab" class="flex-1 py-2 rounded-md font-medium bg-red-600 text-white">Student</button>
+      </div>
+
+      <!-- Sign In Form -->
+      <div id="signInForm" class="space-y-4 mt-3">
+        <div>
+          <label class="block text-gray-700 text-sm font-medium mb-1">Email</label>
+          <input id="loginEmail" type="email" placeholder="Enter Gmail"
+                 class="w-full border rounded-lg p-2 focus:ring-2 focus:ring-red-400 focus:outline-none" />
+        </div>
+
+        <div class="relative">
+          <label class="block text-gray-700 text-sm font-medium mb-1">Password</label>
+          <input id="loginPassword" type="password" placeholder="Password"
+                 class="w-full border rounded-lg p-2 pr-10 focus:ring-2 focus:ring-red-400 focus:outline-none" />
+          <span id="toggleLoginPassword" class="absolute right-3 top-9 cursor-pointer text-gray-500">👁️</span>
+        </div>
+
+        <button id="loginBtn" class="w-full py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 font-semibold">Sign In</button>
+        <p class="text-center text-sm text-gray-500 mt-2">
+          Forgot password? <a href="#" class="text-red-600 hover:underline">Click here</a>
+        </p>
+      </div>
+
+      <!-- Sign Up Form -->
+      <div id="signUpForm" class="hidden space-y-4 mt-3">
+        <input id="registerId" type="text" placeholder="Enter ID"
+               class="w-full border rounded-lg p-2 focus:ring-2 focus:ring-red-400 focus:outline-none" />
+        <input id="registerName" type="text" placeholder="Enter Name"
+               class="w-full border rounded-lg p-2 focus:ring-2 focus:ring-red-400 focus:outline-none" />
+        <input id="registerEmail" type="email" placeholder="Enter Gmail"
+               class="w-full border rounded-lg p-2 focus:ring-2 focus:ring-red-400 focus:outline-none" />
+        <div class="relative">
+          <input id="registerPassword" type="password" placeholder="Create Password"
+                 class="w-full border rounded-lg p-2 pr-10 focus:ring-2 focus:ring-red-400 focus:outline-none" />
+          <span id="toggleRegisterPassword" class="absolute right-3 top-3 cursor-pointer text-gray-500">👁️</span>
+        </div>
+
+        <div id="photoField">
+          <label class="block text-gray-700 text-sm font-medium mb-1">Upload Face Photo (for students)</label>
+          <input id="studentPhoto" type="file" accept="image/*" class="w-full border rounded-lg p-2 bg-gray-50" />
+        </div>
+
+        <button id="registerBtn" class="w-full py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 font-semibold">Sign Up</button>
+        <p class="text-center text-sm text-gray-500 mt-2">
+          Already have an account?
+          <a href="#" id="backToSignIn" class="text-red-600 hover:underline">Sign In</a>
+        </p>
+      </div>
+
+      <div class="text-center text-xs text-gray-400">© NoProxy 2025</div>
+    </div>
+  </div>
+
+  <!-- DASHBOARD SECTION (faculty + student hidden initially) -->
+  <div id="dashboards" class="hidden min-h-screen flex">
+    <aside id="sidebar" class="w-64 bg-red-600 text-white flex flex-col p-6 space-y-6"></aside>
+    <main id="mainArea" class="flex-1 bg-overlay p-8 overflow-y-auto"></main>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
